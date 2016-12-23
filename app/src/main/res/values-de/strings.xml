@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Meine Anwendung</string>
+    <string name="category_empty">Hier ist Platz f\u00FCr dich.</string>
+
+    <string name="credit_packing">
+        <![CDATA[
+            Icons erstellt von <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> auf <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> unter der Lizenz <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        ]]>
+    </string>
+    <string name="credit_ckeck_mark">
+        <![CDATA[
+            Icons erstellt von <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> auf <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> unter der Lizenz <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        ]]>
+    </string>
+    <string name="action_new_category">Neue Kategorie</string>
+    <string name="action_save_category">Speichern</string>
+    <string name="action_delete">L\u00F6schen</string>
+    <string name="action_edit">Bearbeiten</string>
+    <string name="action_search">Suche</string>
+    <string name="action_sorts">Sortierung</string>
+    <string name="editor_category_changed">Ge\u00E4ndert</string>
+    <string name="editor_category_created">Erstellt</string>
+    <string name="editor_category_parent_category">Oberkategorie</string>
+    <string name="editor_category_identifier">ID</string>
+    <string name="editor_category_name">Name</string>
+    <string name="editor_category_title_change">Kategorie bearbeiten</string>
+    <string name="editor_category_title_create">Neue Kategorie</string>
+    <string name="editor_category_error_empty">Name ist leer</string>
+    <string name="editor_category_error_exist">Der Name ist bereits vergeben</string>
+    <string name="none">Keine</string>
+    <string name="list_header_categories">Kategorien</string>
+    <string name="list_header_products">Lagerteile</string>
+    <string name="bottom_bar_category">Kategorie</string>
+    <string name="bottom_bar_stock_item">Lagerteil</string>
+    <string name="drawer_open">\u00D6ffen</string>
+    <string name="drawer_close">Schlie\u00DFen</string>
+    <string name="nav_stock">Lager</string>
+    <string name="nav_orders">Bestellungen</string>
+    <string name="sorting_alpha_asc">A - Z</string>
+    <string name="sorting_alpha_desc">Z - A</string>
+    <string name="sorting_title_name">Name</string>
+    <string name="action_clear">Zur\u00FCcksetzen</string>
+    <string name="hint_search">Suche …</string>
+    <string name="editor_stock_item_changed">Ge\u00E4ndert</string>
+    <string name="editor_stock_item_created">Erstellt</string>
+    <string name="editor_stock_item_parent_category">Kategorie</string>
+    <string name="editor_stock_item_identifier">ID</string>
+    <string name="editor_stock_item_name">Name</string>
+    <string name="editor_stock_item_stock">Menge</string>
+    <string name="editor_stock_item_order_limit">Bestelllimit</string>
+    <string name="editor_stock_item_title_change">Lagerteil bearbeiten</string>
+    <string name="editor_stock_item_title_create">Neues Lagerteil</string>
+    <string name="editor_stock_item_error_empty">Das Feld ist leer</string>
+    <string name="editor_stock_item_error_exist">Der Name ist bereits vergeben</string>
+</resources>

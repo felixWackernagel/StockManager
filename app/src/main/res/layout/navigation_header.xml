@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <de.wackernagel.android.sidekick.widgets.AspectRatioImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/paper_stack"
+        app:ratio="sixteen_nine"
+        app:aspect="width"/>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@drawable/text_protection"/>
+
+    <de.wackernagel.android.sidekick.widgets.TypefaceTextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/app_name"
+        android:textSize="14sp"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="@dimen/sidekick_keyline1"
+        android:layout_marginStart="@dimen/sidekick_keyline1"
+        android:layout_marginRight="@dimen/sidekick_keyline3"
+        android:layout_marginEnd="@dimen/sidekick_keyline3"
+        android:layout_marginBottom="@dimen/sidekick_space_between_content"
+        app:typeface="roboto_medium"/>
+
+</FrameLayout>

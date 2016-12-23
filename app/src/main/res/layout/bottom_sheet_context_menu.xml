@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/sidekick_space_between_content"
+    android:paddingBottom="@dimen/sidekick_space_between_content">
+
+    <de.wackernagel.android.sidekick.widgets.TypefaceTextView
+        android:id="@+id/action_edit"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:drawableLeft="@drawable/ic_mode_edit_black_24dp"
+        android:background="?attr/selectableItemBackground"
+        android:drawablePadding="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:text="@string/action_edit"
+        android:textSize="16sp"
+        android:textColor="@color/sidekick_text_primary"
+        app:typeface="roboto_regular"/>
+
+    <de.wackernagel.android.sidekick.widgets.TypefaceTextView
+        android:id="@+id/action_delete"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:drawableLeft="@drawable/ic_delete_black_24dp"
+        android:background="?attr/selectableItemBackground"
+        android:drawablePadding="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:text="@string/action_delete"
+        android:textSize="16sp"
+        android:textColor="@color/sidekick_text_primary"
+        app:typeface="roboto_regular"/>
+
+</LinearLayout>

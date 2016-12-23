@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="category_empty">Here is room for you.</string>
+
+    <string name="credit_packing">
+        <![CDATA[
+            Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        ]]>
+    </string>
+    <string name="credit_ckeck_mark">
+        <![CDATA[
+            Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        ]]>
+    </string>
+    <string name="action_new_category">New Category</string>
+    <string name="action_save_category">Save</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_search">Search</string>
+    <string name="action_sorts">Sort</string>
+    <string name="editor_category_changed">Changed</string>
+    <string name="editor_category_created">Created</string>
+    <string name="editor_category_parent_category">Parent Category</string>
+    <string name="editor_category_identifier">Identifier</string>
+    <string name="editor_category_name">Name</string>
+    <string name="editor_category_title_change">Edit Category</string>
+    <string name="editor_category_title_create">New Category</string>
+    <string name="editor_category_error_empty">Enter a name.</string>
+    <string name="editor_category_error_exist">Category with this name already exists.</string>
+    <string name="none">None</string>
+    <string name="bottom_bar_category">Category</string>
+    <string name="bottom_bar_stock_item">Stock-Item</string>
+    <string name="list_header_categories">Categories</string>
+    <string name="list_header_products">Stock Items</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="nav_stock">Stock</string>
+    <string name="nav_orders">Orders</string>
+    <string name="sorting_alpha_asc">A - Z</string>
+    <string name="sorting_alpha_desc">Z - A</string>
+    <string name="sorting_title_name">Name</string>
+    <string name="action_clear">Clear</string>
+    <string name="hint_search">Search …</string>
+    <string name="editor_stock_item_changed">Changed</string>
+    <string name="editor_stock_item_created">Created</string>
+    <string name="editor_stock_item_parent_category">Category</string>
+    <string name="editor_stock_item_identifier">Identifier</string>
+    <string name="editor_stock_item_name">Name</string>
+    <string name="editor_stock_item_stock">Stock</string>
+    <string name="editor_stock_item_order_limit">Order Limit</string>
+    <string name="editor_stock_item_title_change">Edit Stock Item</string>
+    <string name="editor_stock_item_title_create">New Stock Item</string>
+    <string name="editor_stock_item_error_empty">Enter a value.</string>
+    <string name="editor_stock_item_error_exist">Stock item with this name already exists.</string>
+</resources>

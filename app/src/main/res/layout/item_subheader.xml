@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <de.wackernagel.android.sidekick.widgets.TypefaceTextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingEnd="@dimen/sidekick_keyline3"
+        android:paddingLeft="@dimen/sidekick_keyline2"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:paddingStart="@dimen/sidekick_keyline2"
+        android:textColor="@color/sidekick_text_secondary"
+        android:textSize="14sp"
+        app:typeface="roboto_medium"
+        tools:text="Categories"/>
+
+</LinearLayout>

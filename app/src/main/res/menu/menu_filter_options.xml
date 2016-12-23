@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/section_name"
+        android:title="@string/sorting_title_name"
+        android:enabled="false" />
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_sort_alpha_asc"
+            android:title="@string/sorting_alpha_asc"
+            android:icon="@drawable/ic_arrow_upward_black_24dp"/>
+
+        <item
+            android:id="@+id/action_sort_alpha_desc"
+            android:title="@string/sorting_alpha_desc"
+            android:icon="@drawable/ic_arrow_downward_black_24dp"/>
+
+    </group>
+
+</menu>

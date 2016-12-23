@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingBottom="16dp"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sidekick_toolbarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:contentInsetStart="@dimen/sidekick_keyline1"
+        app:contentInsetEnd="@dimen/sidekick_keyline3"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <de.wackernagel.android.sidekick.widgets.TypefaceTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/sidekick_text_secondary"
+            app:typeface="roboto_regular"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/sidekick_divider"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/edit_container"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingStart="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:paddingEnd="@dimen/sidekick_keyline3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit"
+            android:inputType="text"
+            android:hint="@string/editor_category_name"
+            android:imeOptions="actionNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/stock_container"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingStart="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:paddingEnd="@dimen/sidekick_keyline3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/stock"
+            android:inputType="numberDecimal"
+            android:hint="@string/editor_stock_item_stock"
+            android:imeOptions="actionNext"
+            android:digits="0123456789"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/order_limit_container"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingStart="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:paddingEnd="@dimen/sidekick_keyline3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/order_limit"
+            android:inputType="numberDecimal"
+            android:hint="@string/editor_stock_item_order_limit"
+            android:imeOptions="actionDone"
+            android:digits="0123456789"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingStart="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:paddingEnd="@dimen/sidekick_keyline3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/id"
+            android:inputType="number"
+            android:hint="@string/editor_stock_item_identifier"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingStart="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:paddingEnd="@dimen/sidekick_keyline3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/parent"
+            android:inputType="number"
+            android:hint="@string/editor_stock_item_parent_category"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingStart="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:paddingEnd="@dimen/sidekick_keyline3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/created"
+            android:inputType="text"
+            android:hint="@string/editor_stock_item_created"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/sidekick_keyline1"
+        android:paddingStart="@dimen/sidekick_keyline1"
+        android:paddingRight="@dimen/sidekick_keyline3"
+        android:paddingEnd="@dimen/sidekick_keyline3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/changed"
+            android:inputType="text"
+            android:hint="@string/editor_stock_item_changed"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>

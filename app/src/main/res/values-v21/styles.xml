@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="App">
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <!-- specify enter and exit transitions -->
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/no_transition</item>
+    </style>
+
+    <style name="ThemeOverlay.AppCompat.ActionBar.Search">
+        <item name="colorControlNormal">@color/sidekick_icon</item>
+    </style>
+
+</resources>

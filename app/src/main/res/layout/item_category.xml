@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                   xmlns:tools="http://schemas.android.com/tools"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:foreground="?attr/selectableItemBackground">
+
+    <de.wackernagel.android.sidekick.widgets.TypefaceTextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:drawableLeft="@drawable/ic_directory"
+        android:drawableStart="@drawable/ic_directory"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textColor="@color/sidekick_text_primary"
+        android:textSize="16sp"
+        app:typeface="roboto_regular"
+        tools:text="Single line list row"/>
+
+    <ImageButton
+        android:contentDescription="@null"
+        android:padding="8dp"
+        android:layout_gravity="center_vertical|end"
+        android:id="@+id/more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_more_vert_black_24dp"/>
+
+</FrameLayout>
