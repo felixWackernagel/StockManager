@@ -1,2 +1,2 @@
 # StockManager
-Adnroid example project to work with Sidekick.
+Android example project to work with Sidekick.
