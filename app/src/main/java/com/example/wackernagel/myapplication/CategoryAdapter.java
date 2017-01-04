@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.wackernagel.myapplication.db.CategoryModel;
 import com.example.wackernagel.myapplication.db.StockItemModel;
+import com.example.wackernagel.myapplication.editor.ContextMenuBottomSheet;
 
 import java.util.ArrayList;
 import java.util.List;

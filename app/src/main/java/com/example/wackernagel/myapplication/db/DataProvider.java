@@ -13,7 +13,7 @@ public class DataProvider extends ContractContentProvider implements OnSQLiteSch
     public static final String AUTHORITY = "com.example.wackernagel.myapplication";
 
     public DataProvider() {
-        super( AUTHORITY, "myapplication.db", 4);
+        super( AUTHORITY, "myapplication.db", 6);
         addContract(new CategoryContract());
         addContract(new StockItemContract());
     }
@@ -44,6 +44,11 @@ public class DataProvider extends ContractContentProvider implements OnSQLiteSch
         }
         if( oldVersion == 3 && newVersion == 4 ) {
             new StockItemContract().onCreate(db);
+        }
+        if( oldVersion == 5 && newVersion == 6 ) {
+            db.execSQL("DROP TABLE " + CategoryContract.TABLE);
+            db.execSQL("DROP TABLE " + StockItemContract.TABLE);
+            getSQLiteOpenHelper().onCreate(db);
         }
     }
 

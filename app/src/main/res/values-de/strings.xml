@@ -52,4 +52,5 @@
     <string name="editor_stock_item_title_create">Neues Lagerteil</string>
     <string name="editor_stock_item_error_empty">Das Feld ist leer</string>
     <string name="editor_stock_item_error_exist">Der Name ist bereits vergeben</string>
+    <string name="editor_stock_item_error_no_number">Dies ist keine g\u00FCltige Zahl.</string>
 </resources>

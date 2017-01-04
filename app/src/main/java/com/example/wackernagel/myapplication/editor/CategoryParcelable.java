@@ -1,4 +1,4 @@
-package com.example.wackernagel.myapplication;
+package com.example.wackernagel.myapplication.editor;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -17,7 +17,7 @@ class CategoryParcelable implements Parcelable {
     }
 
     private CategoryParcelable(Parcel in) {
-        categoryModel = new CategoryModel( in.readLong(), in.readLong(), in.readString(), new Date(in.readLong()), new Date(in.readLong()));
+        categoryModel = new CategoryModel(in.readLong(), in.readLong(), in.readString(), new Date(in.readLong()), new Date(in.readLong()), in.readString());
     }
 
     public static final Creator<CategoryParcelable> CREATOR = new Creator<CategoryParcelable>() {

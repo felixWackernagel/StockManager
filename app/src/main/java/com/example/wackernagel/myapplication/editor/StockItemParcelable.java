@@ -1,4 +1,4 @@
-package com.example.wackernagel.myapplication;
+package com.example.wackernagel.myapplication.editor;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -17,7 +17,7 @@ class StockItemParcelable implements Parcelable {
     }
 
     private StockItemParcelable(Parcel in) {
-        stockItemModel = new StockItemModel( in.readLong(), in.readLong(), in.readString(), in.readInt(), in.readInt(), new Date(in.readLong()), new Date(in.readLong()));
+        stockItemModel = new StockItemModel( in.readLong(), in.readLong(), in.readString(), in.readInt(), in.readInt(), new Date(in.readLong()), new Date(in.readLong()), in.readString());
     }
 
     public static final Creator<StockItemParcelable> CREATOR = new Creator<StockItemParcelable>() {

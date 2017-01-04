@@ -30,8 +30,12 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
+import com.example.wackernagel.myapplication.animations.TranslateXAnimation;
+import com.example.wackernagel.myapplication.animations.TranslateYAnimation;
 import com.example.wackernagel.myapplication.db.CategoryModel;
 import com.example.wackernagel.myapplication.db.StockItemModel;
+import com.example.wackernagel.myapplication.editor.CategoryEditorFragment;
+import com.example.wackernagel.myapplication.editor.StockItemEditorFragment;
 import com.example.wackernagel.myapplication.utils.VisibilityUtils;
 
 import java.util.Locale;
@@ -81,7 +85,23 @@ public class MainActivity extends AppCompatActivity implements CategoryListFragm
         });
 
         final TabLayout tabs = (TabLayout) findViewById(R.id.tabLayout);
-        tabs.addTab( tabs.newTab().setText( R.string.app_name ) );
+        tabs.addTab( tabs.newTab().setText( R.string.nav_stock ) );
+        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                Log.i("App", "Tab " + tab.getPosition() + " selected." );
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                Log.i("App", "Tab " + tab.getPosition() + " unselected." );
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                Log.i("App", "Tab " + tab.getPosition() + " reselected." );
+            }
+        });
 
         drawer = (DrawerLayout ) findViewById(R.id.drawer);
         final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle( this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);

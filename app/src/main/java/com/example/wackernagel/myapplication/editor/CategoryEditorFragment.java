@@ -1,4 +1,4 @@
-package com.example.wackernagel.myapplication;
+package com.example.wackernagel.myapplication.editor;
 
 import android.content.ContentUris;
 import android.database.Cursor;
@@ -15,10 +15,12 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
+import com.example.wackernagel.myapplication.R;
 import com.example.wackernagel.myapplication.db.CategoryContract;
 import com.example.wackernagel.myapplication.db.CategoryModel;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import de.wackernagel.android.sidekick.compats.CursorCompat;
@@ -131,33 +133,39 @@ public class CategoryEditorFragment extends EditorBottomSheet {
     }
 
     private void save() {
+        final boolean isInsert = (editable == null);
+
+        // CHECK: empty name
         final String name = editText.getText().toString();
         if( TextUtils.isEmpty( name ) ) {
             editContainer.setError( getString( R.string.editor_category_error_empty ) );
-            editContainer.getEditText().requestFocus();
+            focusEditText( editContainer );
             return;
         }
 
-        if( existCategory( name ) ) {
+        // CHECK: name doesn't exist
+        if( existCategory( name ) && ( isInsert || !editable.getName().equals( name ) ) ) {
             editContainer.setError( getString( R.string.editor_category_error_exist ) );
-            editContainer.getEditText().requestFocus();
+            focusEditText( editContainer );
             return;
         }
 
-        if( editable != null ) {
-            if( !name.equals( editable.getName() ) ) {
-                getContext().getContentResolver().update(
-                        ContentUris.withAppendedId(CategoryContract.CONTENT_URI, editable.getId()),
-                        new CategoryModel.Builder().setName( name ).build(),
-                        null,
-                        null );
-            }
+        if( !isInsert ) {
+            getContext().getContentResolver().update(
+                    ContentUris.withAppendedId(CategoryContract.CONTENT_URI, editable.getId()),
+                    new CategoryModel.Builder()
+                            .setName( name )
+                            .setChanged( new Date() )
+                            .build(),
+                    null,
+                    null );
         } else {
             getContext().getContentResolver().insert(
                     CategoryContract.CONTENT_URI,
                     new CategoryModel.Builder()
                             .setName( name )
                             .setParentId( parentCategory != null ? parentCategory.getId() : 0 )
+                            .setType( CategoryContract.TABLE )
                             .build() );
         }
 

@@ -1,4 +1,4 @@
-package com.example.wackernagel.myapplication;
+package com.example.wackernagel.myapplication.editor;
 
 import android.app.Dialog;
 import android.content.ContentUris;
@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -114,5 +115,11 @@ public abstract class EditorBottomSheet extends BottomSheetDialogFragment {
             cursor.close();
         }
         return parent;
+    }
+
+    void focusEditText( final TextInputLayout editContainer) {
+        if( editContainer != null && editContainer.getEditText() != null ) {
+            editContainer.getEditText().requestFocus();
+        }
     }
 }

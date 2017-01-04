@@ -1,4 +1,4 @@
-package com.example.wackernagel.myapplication;
+package com.example.wackernagel.myapplication.editor;
 
 import android.app.Dialog;
 import android.content.ContentProviderOperation;
@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.wackernagel.myapplication.R;
 import com.example.wackernagel.myapplication.db.CategoryContract;
 import com.example.wackernagel.myapplication.db.CategoryModel;
 import com.example.wackernagel.myapplication.db.DataProvider;

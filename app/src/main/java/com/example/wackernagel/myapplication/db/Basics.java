@@ -15,4 +15,7 @@ class Basics {
     @Default( value = "(datetime('now', 'localtime'))" )
     Date changed;
 
+    @NotNull
+    String type;
+
 }

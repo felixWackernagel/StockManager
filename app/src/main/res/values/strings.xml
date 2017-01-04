@@ -52,4 +52,5 @@
     <string name="editor_stock_item_title_create">New Stock Item</string>
     <string name="editor_stock_item_error_empty">Enter a value.</string>
     <string name="editor_stock_item_error_exist">Stock item with this name already exists.</string>
+    <string name="editor_stock_item_error_no_number">This is no valid number.</string>
 </resources>

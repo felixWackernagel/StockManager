@@ -1,4 +1,4 @@
-package com.example.wackernagel.myapplication;
+package com.example.wackernagel.myapplication.editor;
 
 import android.content.ContentUris;
 import android.database.Cursor;
@@ -15,12 +15,15 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
+import com.example.wackernagel.myapplication.R;
 import com.example.wackernagel.myapplication.db.CategoryModel;
 import com.example.wackernagel.myapplication.db.StockItemContract;
 import com.example.wackernagel.myapplication.db.StockItemModel;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 import de.wackernagel.android.sidekick.compats.CursorCompat;
 
@@ -140,43 +143,64 @@ public class StockItemEditorFragment extends EditorBottomSheet {
     }
 
     private void save() {
-        final boolean isUpdate = editable != null;
+        final boolean isInsert = (editable == null);
 
+        // CHECK: name isn't empty
         final String name = nameContainer.getEditText().getText().toString();
         if( TextUtils.isEmpty( name ) ) {
             nameContainer.setError( getString( R.string.editor_stock_item_error_empty ) );
-            nameContainer.getEditText().requestFocus();
+            focusEditText( nameContainer );
             return;
         }
 
-        if( ( !isUpdate && existStockItem( name ) ) || ( isUpdate && !name.equals(editable.getName() ) && existStockItem( name ) ) ) {
+        // CHECK: name doesn't exist
+        if( existStockItem( name ) && ( isInsert || !name.equals( editable.getName() ) ) ) {
             nameContainer.setError( getString( R.string.editor_stock_item_error_exist ) );
-            nameContainer.getEditText().requestFocus();
+            focusEditText( nameContainer );
             return;
         }
 
+        // CHECK: stock isn't empty
         final String stock = stockContainer.getEditText().getText().toString();
         if( TextUtils.isEmpty( stock ) ) {
             stockContainer.setError( getString( R.string.editor_stock_item_error_empty ) );
-            stockContainer.getEditText().requestFocus();
+            focusEditText( stockContainer );
             return;
         }
 
+        // CHECK: orderLimit isn't empty
         final String orderLimit = orderLimitContainer.getEditText().getText().toString();
         if( TextUtils.isEmpty( orderLimit ) ) {
             orderLimitContainer.setError( getString( R.string.editor_stock_item_error_empty ) );
-            orderLimitContainer.getEditText().requestFocus();
+            focusEditText( orderLimitContainer );
             return;
         }
 
-        if( isUpdate ) {
-            if( !name.equals( editable.getName() ) ) {
-                getContext().getContentResolver().update(
-                        ContentUris.withAppendedId(StockItemContract.CONTENT_URI, editable.getId()),
-                        new StockItemModel.Builder().setName( name ).setStock( Integer.valueOf( stock ) ).setOrderLimit( Integer.valueOf( orderLimit ) ).build(),
-                        null,
-                        null );
-            }
+        // CHECK: only digits without leading zero
+        final Pattern validNumber = Pattern.compile( "^(0|[1-9][0-9]*)$" );
+        if( !validNumber.matcher( stock ).matches() ) {
+            stockContainer.setError( getString( R.string.editor_stock_item_error_no_number ) );
+            focusEditText( stockContainer );
+            return;
+        }
+
+        if( !validNumber.matcher( orderLimit ).matches() ) {
+            orderLimitContainer.setError( getString( R.string.editor_stock_item_error_no_number ) );
+            focusEditText( orderLimitContainer );
+            return;
+        }
+
+        if( !isInsert ) {
+            getContext().getContentResolver().update(
+                    ContentUris.withAppendedId(StockItemContract.CONTENT_URI, editable.getId()),
+                    new StockItemModel.Builder()
+                            .setName( name )
+                            .setStock( Integer.valueOf( stock ) )
+                            .setOrderLimit( Integer.valueOf( orderLimit ) )
+                            .setChanged( new Date() )
+                            .build(),
+                    null,
+                    null );
         } else {
             getContext().getContentResolver().insert(
                     StockItemContract.CONTENT_URI,
@@ -184,6 +208,7 @@ public class StockItemEditorFragment extends EditorBottomSheet {
                             .setName( name )
                             .setStock( Integer.valueOf( stock ) )
                             .setCategoryId( parentCategory != null ? parentCategory.getId() : 0 )
+                            .setType(StockItemContract.TABLE)
                             .build() );
         }
 

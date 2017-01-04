@@ -1,4 +1,4 @@
-package com.example.wackernagel.myapplication;
+package com.example.wackernagel.myapplication.animations;
 
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
