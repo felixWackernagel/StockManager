@@ -25,7 +25,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-import com.example.wackernagel.myapplication.db.CategoryContract;
 import com.example.wackernagel.myapplication.db.CategoryModel;
 import com.example.wackernagel.myapplication.db.StockItemModel;
 
@@ -58,7 +57,7 @@ public class CategoryListFragment extends Fragment implements LoaderManager.Load
 
     public static CategoryListFragment newInstance( long parentId ) {
         final Bundle arguments = new Bundle();
-        arguments.putLong( CategoryContract.COLUMN_PARENT_ID, parentId );
+        arguments.putLong( CategoryModel.Contract.COLUMN_PARENT_ID, parentId );
 
         final CategoryListFragment fragment = new CategoryListFragment();
         fragment.setArguments( arguments );
@@ -165,11 +164,11 @@ public class CategoryListFragment extends Fragment implements LoaderManager.Load
         }
         switch( item.getItemId() ) {
             case R.id.action_sort_alpha_asc:
-                sortOrder = CategoryContract.COLUMN_NAME + " ASC";
+                sortOrder = CategoryModel.Contract.COLUMN_NAME + " ASC";
                 return true;
 
             case R.id.action_sort_alpha_desc:
-                sortOrder = CategoryContract.COLUMN_NAME + " DESC";
+                sortOrder = CategoryModel.Contract.COLUMN_NAME + " DESC";
                 return true;
 
             default:
@@ -236,7 +235,7 @@ public class CategoryListFragment extends Fragment implements LoaderManager.Load
     }
 
     private static String getParentId( Bundle args ) {
-        return String.valueOf( (args != null) ? args.getLong( CategoryContract.COLUMN_PARENT_ID, 0 ) : 0 );
+        return String.valueOf( (args != null) ? args.getLong( CategoryModel.Contract.COLUMN_PARENT_ID, 0 ) : 0 );
     }
 
     @Override

@@ -14,10 +14,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.wackernagel.myapplication.R;
-import com.example.wackernagel.myapplication.db.CategoryContract;
 import com.example.wackernagel.myapplication.db.CategoryModel;
 import com.example.wackernagel.myapplication.db.DataProvider;
-import com.example.wackernagel.myapplication.db.StockItemContract;
 import com.example.wackernagel.myapplication.db.StockItemModel;
 
 import java.util.ArrayList;
@@ -74,12 +72,12 @@ public class ContextMenuBottomSheet extends BottomSheetDialogFragment {
                     dismiss();
 
                     final ArrayList<ContentProviderOperation> statements = new ArrayList<>(2);
-                    statements.add( ContentProviderOperation.newUpdate( CategoryContract.CONTENT_URI )
-                            .withValues( new CategoryModel.Builder().setParentId( categoryModel.getParentId() ).build() )
-                            .withSelection( CategoryContract.COLUMN_PARENT_ID + "=?", new String[]{ String.valueOf( categoryModel.getId() ) } )
+                    statements.add( ContentProviderOperation.newUpdate( CategoryModel.Contract.CONTENT_URI )
+                            .withValues( CategoryModel.builder().setParentId( categoryModel.getParentId() ).build() )
+                            .withSelection( CategoryModel.Contract.COLUMN_PARENT_ID + "=?", new String[]{ String.valueOf( categoryModel.getId() ) } )
                             .withYieldAllowed( true )
                             .build() );
-                    statements.add( ContentProviderOperation.newDelete( ContentUris.withAppendedId(CategoryContract.CONTENT_URI, categoryModel.getId() ) )
+                    statements.add( ContentProviderOperation.newDelete( ContentUris.withAppendedId(CategoryModel.Contract.CONTENT_URI, categoryModel.getId() ) )
                             .withYieldAllowed( true )
                             .build() );
                     try {
@@ -105,7 +103,7 @@ public class ContextMenuBottomSheet extends BottomSheetDialogFragment {
                 @Override
                 public void onClick(View v) {
                     dismiss();
-                    v.getContext().getContentResolver().delete( ContentUris.withAppendedId(StockItemContract.CONTENT_URI, stockItemModel.getId() ), null, null );
+                    v.getContext().getContentResolver().delete( ContentUris.withAppendedId(StockItemModel.Contract.CONTENT_URI, stockItemModel.getId() ), null, null );
                 }
             });
         }

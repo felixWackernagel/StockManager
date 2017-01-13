@@ -13,9 +13,9 @@ public class DataProvider extends ContractContentProvider implements OnSQLiteSch
     public static final String AUTHORITY = "com.example.wackernagel.myapplication";
 
     public DataProvider() {
-        super( AUTHORITY, "myapplication.db", 6);
-        addContract(new CategoryContract());
-        addContract(new StockItemContract());
+        super( AUTHORITY, "myapplication.db", 7);
+        addContract(new CategoryModel.Contract());
+        addContract(new StockItemModel.Contract());
     }
 
     @NonNull
@@ -39,15 +39,20 @@ public class DataProvider extends ContractContentProvider implements OnSQLiteSch
     @Override
     public void onBeforeUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if( oldVersion == 1 && newVersion == 2 ) {
-            db.execSQL("DROP TABLE " + CategoryContract.TABLE);
+            db.execSQL("DROP TABLE " + CategoryModel.Contract.TABLE);
             getSQLiteOpenHelper().onCreate(db);
         }
         if( oldVersion == 3 && newVersion == 4 ) {
-            new StockItemContract().onCreate(db);
+            new StockItemModel.Contract().onCreate(db);
         }
         if( oldVersion == 5 && newVersion == 6 ) {
-            db.execSQL("DROP TABLE " + CategoryContract.TABLE);
-            db.execSQL("DROP TABLE " + StockItemContract.TABLE);
+            db.execSQL("DROP TABLE " + CategoryModel.Contract.TABLE);
+            db.execSQL("DROP TABLE " + StockItemModel.Contract.TABLE);
+            getSQLiteOpenHelper().onCreate(db);
+        }
+        if( oldVersion == 6 && newVersion == 7 ) {
+            db.execSQL("DROP TABLE " + CategoryModel.Contract.TABLE);
+            db.execSQL("DROP TABLE " + StockItemModel.Contract.TABLE);
             getSQLiteOpenHelper().onCreate(db);
         }
     }

@@ -5,9 +5,7 @@ import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.example.wackernagel.myapplication.db.CategoryContract;
 import com.example.wackernagel.myapplication.db.CategoryModel;
-import com.example.wackernagel.myapplication.db.StockItemContract;
 import com.example.wackernagel.myapplication.db.StockItemModel;
 
 import java.util.ArrayList;
@@ -34,8 +32,8 @@ class DataLoader extends ObjectLoader<List<Object>> {
     @Override
     protected void onRegisterObserver() {
         if( !observing ) {
-            getContext().getContentResolver().registerContentObserver( CategoryContract.CONTENT_URI, true, categoryObserver );
-            getContext().getContentResolver().registerContentObserver( StockItemContract.CONTENT_URI, true, stockItemObserver );
+            getContext().getContentResolver().registerContentObserver( CategoryModel.Contract.CONTENT_URI, true, categoryObserver );
+            getContext().getContentResolver().registerContentObserver( StockItemModel.Contract.CONTENT_URI, true, stockItemObserver );
             observing = true;
         }
     }
@@ -67,9 +65,9 @@ class DataLoader extends ObjectLoader<List<Object>> {
 
     private List<CategoryModel> loadCategories() {
         final Cursor cursor = getContext().getContentResolver().query(
-                CategoryContract.CONTENT_URI,
-                CategoryContract.PROJECTION,
-                CategoryContract.COLUMN_PARENT_ID + "=?",
+                CategoryModel.Contract.CONTENT_URI,
+                CategoryModel.Contract.PROJECTION,
+                CategoryModel.Contract.COLUMN_PARENT_ID + "=?",
                 new String[]{ categoryId },
                 sortOrder );
         if( cursor != null && cursor.moveToFirst() ) {
@@ -88,9 +86,9 @@ class DataLoader extends ObjectLoader<List<Object>> {
 
     private List<StockItemModel> loadStockItems() {
         final Cursor cursor = getContext().getContentResolver().query(
-                StockItemContract.CONTENT_URI,
-                StockItemContract.PROJECTION,
-                StockItemContract.COLUMN_CATEGORY_ID + "=?",
+                StockItemModel.Contract.CONTENT_URI,
+                StockItemModel.Contract.PROJECTION,
+                StockItemModel.Contract.COLUMN_CATEGORY_ID + "=?",
                 new String[]{ String.valueOf( categoryId ) },
                 sortOrder );
         if( cursor != null && cursor.moveToFirst() ) {

@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.example.wackernagel.myapplication.R;
 import com.example.wackernagel.myapplication.db.CategoryModel;
-import com.example.wackernagel.myapplication.db.StockItemContract;
 import com.example.wackernagel.myapplication.db.StockItemModel;
 
 import java.text.SimpleDateFormat;
@@ -192,8 +191,8 @@ public class StockItemEditorFragment extends EditorBottomSheet {
 
         if( !isInsert ) {
             getContext().getContentResolver().update(
-                    ContentUris.withAppendedId(StockItemContract.CONTENT_URI, editable.getId()),
-                    new StockItemModel.Builder()
+                    ContentUris.withAppendedId(StockItemModel.Contract.CONTENT_URI, editable.getId()),
+                    StockItemModel.builder()
                             .setName( name )
                             .setStock( Integer.valueOf( stock ) )
                             .setOrderLimit( Integer.valueOf( orderLimit ) )
@@ -203,12 +202,13 @@ public class StockItemEditorFragment extends EditorBottomSheet {
                     null );
         } else {
             getContext().getContentResolver().insert(
-                    StockItemContract.CONTENT_URI,
-                    new StockItemModel.Builder()
+                    StockItemModel.Contract.CONTENT_URI,
+                    StockItemModel.builder()
                             .setName( name )
                             .setStock( Integer.valueOf( stock ) )
+                            .setOrderLimit( Integer.valueOf( orderLimit ) )
                             .setCategoryId( parentCategory != null ? parentCategory.getId() : 0 )
-                            .setType(StockItemContract.TABLE)
+                            .setType(StockItemModel.Contract.TABLE)
                             .build() );
         }
 
@@ -217,9 +217,9 @@ public class StockItemEditorFragment extends EditorBottomSheet {
 
     private boolean existStockItem( @NonNull  final String name ) {
         final Cursor c = getContext().getContentResolver().query(
-                StockItemContract.CONTENT_URI,
-                StockItemContract.PROJECTION,
-                StockItemContract.COLUMN_NAME + "=?",
+                StockItemModel.Contract.CONTENT_URI,
+                StockItemModel.Contract.PROJECTION,
+                StockItemModel.Contract.COLUMN_NAME + "=?",
                 new String[]{ name }, null );
         final boolean exist = c != null && c.getCount() == 1;
         CursorCompat.close(c);

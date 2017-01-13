@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.wackernagel.myapplication.db.CategoryContract;
 import com.example.wackernagel.myapplication.db.CategoryModel;
 import com.example.wackernagel.myapplication.utils.VisibilityUtils;
 
@@ -102,8 +101,8 @@ public abstract class EditorBottomSheet extends BottomSheetDialogFragment {
         }
 
         final Cursor cursor = getContext().getContentResolver().query(
-                ContentUris.withAppendedId(CategoryContract.CONTENT_URI, id),
-                CategoryContract.PROJECTION,
+                ContentUris.withAppendedId(CategoryModel.Contract.CONTENT_URI, id),
+                CategoryModel.Contract.PROJECTION,
                 null,
                 null,
                 null

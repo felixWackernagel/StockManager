@@ -16,7 +16,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
 import com.example.wackernagel.myapplication.R;
-import com.example.wackernagel.myapplication.db.CategoryContract;
 import com.example.wackernagel.myapplication.db.CategoryModel;
 
 import java.text.SimpleDateFormat;
@@ -152,8 +151,8 @@ public class CategoryEditorFragment extends EditorBottomSheet {
 
         if( !isInsert ) {
             getContext().getContentResolver().update(
-                    ContentUris.withAppendedId(CategoryContract.CONTENT_URI, editable.getId()),
-                    new CategoryModel.Builder()
+                    ContentUris.withAppendedId(CategoryModel.Contract.CONTENT_URI, editable.getId()),
+                    CategoryModel.builder()
                             .setName( name )
                             .setChanged( new Date() )
                             .build(),
@@ -161,11 +160,11 @@ public class CategoryEditorFragment extends EditorBottomSheet {
                     null );
         } else {
             getContext().getContentResolver().insert(
-                    CategoryContract.CONTENT_URI,
-                    new CategoryModel.Builder()
+                    CategoryModel.Contract.CONTENT_URI,
+                    CategoryModel.builder()
                             .setName( name )
                             .setParentId( parentCategory != null ? parentCategory.getId() : 0 )
-                            .setType( CategoryContract.TABLE )
+                            .setType( CategoryModel.Contract.TABLE )
                             .build() );
         }
 
@@ -174,9 +173,9 @@ public class CategoryEditorFragment extends EditorBottomSheet {
 
     private boolean existCategory( @NonNull  final String name ) {
         final Cursor c = getContext().getContentResolver().query(
-                CategoryContract.CONTENT_URI,
-                CategoryContract.PROJECTION,
-                CategoryContract.COLUMN_NAME + "=?",
+                CategoryModel.Contract.CONTENT_URI,
+                CategoryModel.Contract.PROJECTION,
+                CategoryModel.Contract.COLUMN_NAME + "=?",
                 new String[]{ name }, null );
         final boolean exist = c != null && c.getCount() == 1;
         CursorCompat.close(c);

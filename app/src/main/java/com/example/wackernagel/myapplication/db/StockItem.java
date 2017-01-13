@@ -8,12 +8,12 @@ import de.wackernagel.android.sidekick.annotations.Unique;
 @Contract(authority = DataProvider.AUTHORITY)
 class StockItem extends Basics {
 
-    @Unique
+    @Unique(group = 0)
     @NotNull
     @Default( value = "0" )
     Category category;
 
-    @Unique
+    @Unique(group = 0)
     @NotNull
     String name;
 
